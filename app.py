@@ -1,8 +1,9 @@
 import streamlit as st
 import helper
-import pickle
+from joblib import load
 
-model = pickle.load(open('model.pkl','rb'))
+model = load('model.joblib')
+
 
 st.header('Duplicate Question Pairs')
 
