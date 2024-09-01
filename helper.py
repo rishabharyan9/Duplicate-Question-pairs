@@ -2,7 +2,7 @@ import re
 from bs4 import BeautifulSoup
 import distance
 from fuzzywuzzy import fuzz
-import pickle
+from joblib import load
 import numpy as np
 
 cv = load('cv.joblib')
