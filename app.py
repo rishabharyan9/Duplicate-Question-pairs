@@ -3,6 +3,8 @@ import openai
 import helper
 from joblib import load
 
+st.write(f"OpenAI Version: {openai.__version__}")
+
 # Initialize OpenAI API
 openai.api_key = 'sk-proj-kR5aXzopJymfyUav9PM6T3BlbkFJvkRmukQRTeVsKVHumPgN'
 
