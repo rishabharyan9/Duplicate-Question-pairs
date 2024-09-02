@@ -10,16 +10,22 @@ openai.api_key = 'sk-proj-kR5aXzopJymfyUav9PM6T3BlbkFJvkRmukQRTeVsKVHumPgN'
 model = load('model.joblib')
 
 # Function to paraphrase text using OpenAI
+
 def paraphrase_text(text):
-    response = openai.Completion.create(
-        engine="text-davinci-003",  # Or another suitable engine
-        prompt=f"Paraphrase the following text: {text}",
-        max_tokens=60,  # Adjust based on desired paraphrase length
-        n=1,
-        stop=None,
-        temperature=0.7  # Adjust to control the creativity of the paraphrase
+    response = openai.ChatCompletion.create(
+        model="gpt-4o",  # Use the appropriate model
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant that paraphrases text."},
+            {"role": "user", "content": f"Paraphrase the following text: {text}"}
+        ],
+        max_tokens=60,
+        temperature=0.7,
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message['content'].strip()
+
+# Example usage:
+# paraphrased_text = paraphrase_text("Your original text here.")
+# print(paraphrased_text)
 
 st.header('Duplicate Question Pairs')
 
