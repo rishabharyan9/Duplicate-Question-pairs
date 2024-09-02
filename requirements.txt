@@ -4,4 +4,4 @@ fuzzywuzzy
 distance
 bs4
 xgboost
-openai
+openai>=0.27.0
