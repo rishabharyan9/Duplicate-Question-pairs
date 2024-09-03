@@ -6,7 +6,7 @@ from joblib import load
 st.write(f"OpenAI Version: {openai.__version__}")
 
 # Initialize OpenAI API
-openai.api_key = st.secrets["APIKEY"]
+openai.api_key = st.secrets['APIKEY']
 
 # Load the model
 model = load('model.joblib')
