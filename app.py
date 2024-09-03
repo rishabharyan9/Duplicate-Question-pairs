@@ -14,7 +14,7 @@ model = load('model.joblib')
 # Function to paraphrase text using OpenAI
 
 def paraphrase_text(text):
-    response = openai.chat.completions.create(
+    response = client.chat.completions.create(
         model="gpt-4o",  # Use the appropriate model
         messages=[
             {"role": "system", "content": "You are a helpful assistant that paraphrases text."},
