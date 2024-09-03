@@ -23,7 +23,7 @@ def paraphrase_text(text):
         max_tokens=40,
         temperature=0.7,
     )
-    return response.choices[0].message.content.strip()
+    return response.choices[0].message.strip()
 
 # Example usage:
 # paraphrased_text = paraphrase_text("Your original text here.")
