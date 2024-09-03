@@ -6,7 +6,7 @@ from joblib import load
 st.write(f"OpenAI Version: {openai.__version__}")
 
 # Initialize OpenAI API
-openai.api_key = "sk-proj-kR5aXzopJymfyUav9PM6T3BlbkFJvkRmukQRTeVsKVHumPgN"
+openai.api_key = ""
 
 # Load the model
 model = load('model.joblib')
@@ -14,16 +14,16 @@ model = load('model.joblib')
 # Function to paraphrase text using OpenAI
 
 def paraphrase_text(text):
-    response = client.chat.completions.create(
+    response = openai.chat.completions.create(
         model="gpt-4o",  # Use the appropriate model
         messages=[
             {"role": "system", "content": "You are a helpful assistant that paraphrases text."},
             {"role": "user", "content": f"Paraphrase the following text: {text}"}
         ],
         max_tokens=40,
-        temperature=0.7,
+    
     )
-    return response.choices[0].message.strip()
+    return response.choices[0].message.content.strip()
 
 # Example usage:
 # paraphrased_text = paraphrase_text("Your original text here.")
