@@ -5,3 +5,4 @@ distance
 bs4
 xgboost
 openai>=0.27.0
+requests>=2.32.4 # not directly required, pinned by Snyk to avoid a vulnerability
